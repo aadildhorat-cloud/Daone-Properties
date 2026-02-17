@@ -4108,8 +4108,13 @@ const targetId = this.getAttribute('href');
 if (targetId === '#') return;
 const target = document.querySelector(targetId);
 if (target) {
-target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+// Fix: Set overflow to auto BEFORE scrolling
+document.body.style.overflow = 'auto';
 closeMobileMenu();
+// Small delay to ensure menu is fully closed
+setTimeout(() => {
+target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}, 100);
 }
 });
 });
@@ -4137,6 +4142,7 @@ setTimeout(() => {
 aiPrompt.innerHTML = originalText;
 }, 3000);
 }
+
 // ===== SLIDER FUNCTIONALITY =====
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
