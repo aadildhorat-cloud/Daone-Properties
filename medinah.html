@@ -1,0 +1,3082 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Da One Living - Premium Real Estate in Medinah</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+/* ===== DA ONE LIVING COLOR PALETTE ===== */
+:root {
+/* Color Palette - Medinah Theme */
+--primary-blue: #6093BF;
+--light-blue: #73B2D9;
+--olive-green: #667338;
+--golden-orange: #F2B56B;
+--earth-brown: #735B46;
+--primary-dark: #1a1512; /* Dark Brown/Black mix */
+--secondary-dark: #2a221e;
+--tertiary-dark: #3a2e28;
+--text-white: #ffffff;
+--text-light: #f0f4f8;
+--text-gray: #a0a8b8;
+--text-dark: #1a1a2e;
+--shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.15);
+--shadow-md: 0 8px 24px rgba(0, 0, 0, 0.2);
+--shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.25);
+--shadow-glow: 0 0 20px rgba(96, 147, 191, 0.3);
+--glass-bg: rgba(255, 255, 255, 0.08);
+--glass-border: rgba(255, 255, 255, 0.15);
+--glass-hover: rgba(255, 255, 255, 0.12);
+--transition-fast: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+--transition-normal: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+--border-radius-sm: 8px;
+--border-radius-md: 16px;
+--border-radius-lg: 24px;
+--border-radius-xl: 32px;
+--border-radius-full: 50%;
+--spacing-xs: 0.5rem;
+--spacing-sm: 1rem;
+--spacing-md: 2rem;
+--spacing-lg: 3rem;
+--spacing-xl: 4rem;
+--spacing-xxl: 6rem;
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+font-family: 'Montserrat', sans-serif;
+line-height: 1.6;
+color: var(--text-dark);
+background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+background-attachment: fixed;
+overflow-x: hidden;
+min-height: 100vh;
+}
+html {
+scroll-behavior: smooth;
+}
+/* ===== ANIMATION KEYFRAMES ===== */
+@keyframes fadeInUp {
+from { opacity: 0; transform: translateY(40px); }
+to { opacity: 1; transform: translateY(0); }
+}
+@keyframes slideInLeft {
+from { opacity: 0; transform: translateX(-60px); }
+to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideInRight {
+from { opacity: 0; transform: translateX(60px); }
+to { opacity: 1; transform: translateX(0); }
+}
+@keyframes float {
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(-10px); }
+}
+@keyframes pulse {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.05); }
+}
+@keyframes shine {
+0% { background-position: -200% center; }
+100% { background-position: 200% center; }
+}
+@keyframes typing {
+0%, 100% { transform: scale(0.7); opacity: 0.5; }
+50% { transform: scale(1.2); opacity: 1; }
+}
+/* ===== HEADER - GLASSMORPHISM ===== */
+.header {
+position: fixed;
+top: 0;
+width: 100%;
+z-index: 1000;
+padding: var(--spacing-sm);
+transition: var(--transition-normal);
+}
+.header-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+max-width: 1600px;
+margin: 0 auto;
+width: 100%;
+}
+.header.scrolled {
+background: var(--glass-bg);
+backdrop-filter: blur(20px);
+border-bottom: 1px solid var(--glass-border);
+box-shadow: var(--shadow-md);
+}
+.header-logo-container {
+position: relative;
+z-index: 1001;
+}
+.header-logo {
+height: 60px;
+width: auto;
+object-fit: contain;
+transition: var(--transition-fast);
+filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.3));
+}
+.header-logo:hover {
+transform: scale(1.08);
+filter: drop-shadow(0 6px 20px rgba(96, 147, 191, 0.4));
+}
+/* ===== HAMBURGER MENU - FULL SCREEN OVERLAY ===== */
+.hamburger-menu {
+display: flex;
+flex-direction: column;
+cursor: pointer;
+width: 40px;
+height: 35px;
+justify-content: space-between;
+z-index: 1001;
+position: relative;
+}
+.hamburger-menu span {
+width: 100%;
+height: 3px;
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+border-radius: 2px;
+transition: var(--transition-fast);
+position: relative;
+}
+.hamburger-menu.active span:nth-child(1) {
+transform: rotate(45deg) translate(8px, 8px);
+}
+.hamburger-menu.active span:nth-child(2) {
+opacity: 0;
+width: 0;
+}
+.hamburger-menu.active span:nth-child(3) {
+transform: rotate(-45deg) translate(8px, -8px);
+}
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, rgba(26, 21, 18, 0.95), rgba(42, 34, 30, 0.98));
+backdrop-filter: blur(10px);
+z-index: 999;
+opacity: 0;
+visibility: hidden;
+transition: var(--transition-normal);
+}
+.mobile-menu-overlay.active {
+opacity: 1;
+visibility: visible;
+}
+.mobile-menu {
+position: fixed;
+top: 0;
+right: 0;
+width: 100%;
+max-width: 400px;
+height: 100%;
+background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+padding: var(--spacing-lg) var(--spacing-md);
+z-index: 1000;
+transform: translateX(100%);
+transition: var(--transition-normal);
+box-shadow: -8px 0 40px rgba(0, 0, 0, 0.4);
+overflow-y: auto;
+}
+.mobile-menu.active {
+transform: translateX(0);
+}
+.mobile-menu-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: var(--spacing-xl);
+padding-bottom: var(--spacing-md);
+border-bottom: 1px solid var(--glass-border);
+}
+.mobile-menu-close {
+background: none;
+border: none;
+color: var(--text-light);
+font-size: 2rem;
+cursor: pointer;
+padding: 0.5rem;
+transition: var(--transition-fast);
+}
+.mobile-menu-close:hover {
+color: var(--primary-blue);
+transform: rotate(90deg);
+}
+.mobile-menu .logo {
+font-family: 'Playfair Display', serif;
+font-size: 2rem;
+font-weight: 700;
+color: var(--text-white);
+letter-spacing: 1px;
+}
+.mobile-menu .logo span {
+color: var(--primary-blue);
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.mobile-nav-menu {
+list-style: none;
+margin-top: var(--spacing-lg);
+}
+.mobile-nav-menu li {
+margin-bottom: var(--spacing-md);
+opacity: 0;
+transform: translateX(40px);
+animation: slideInRight 0.5s ease forwards;
+animation-delay: calc(0.1s * var(--i));
+}
+.mobile-nav-menu li:nth-child(1) { --i: 1; }
+.mobile-nav-menu li:nth-child(2) { --i: 2; }
+.mobile-nav-menu li:nth-child(3) { --i: 3; }
+.mobile-nav-menu li:nth-child(4) { --i: 4; }
+.mobile-nav-menu li:nth-child(5) { --i: 5; }
+.mobile-nav-menu li:nth-child(6) { --i: 6; }
+.mobile-nav-menu a {
+color: var(--text-light);
+text-decoration: none;
+font-weight: 600;
+font-size: 1.3rem;
+display: block;
+padding: var(--spacing-sm) 0;
+transition: var(--transition-fast);
+position: relative;
+display: flex;
+align-items: center;
+gap: var(--spacing-sm);
+}
+.mobile-nav-menu a i {
+width: 24px;
+text-align: center;
+font-size: 1.1rem;
+}
+.mobile-nav-menu a:hover {
+color: var(--primary-blue);
+transform: translateX(8px);
+}
+.mobile-nav-menu a::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 0;
+height: 2px;
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+transition: var(--transition-fast);
+}
+.mobile-nav-menu a:hover::after {
+width: 40px;
+}
+.mobile-cta-button {
+display: block;
+width: 100%;
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+color: white;
+padding: 1.2rem;
+border: none;
+border-radius: var(--border-radius-md);
+cursor: pointer;
+font-weight: 700;
+font-size: 1.1rem;
+margin-top: var(--spacing-lg);
+text-align: center;
+transition: var(--transition-fast);
+box-shadow: var(--shadow-glow);
+}
+.mobile-cta-button:hover {
+transform: translateY(-3px);
+box-shadow: 0 8px 30px rgba(96, 147, 191, 0.6);
+background: linear-gradient(45deg, var(--light-blue), #6093BF);
+}
+.mobile-menu-social {
+margin-top: var(--spacing-xl);
+padding-top: var(--spacing-md);
+border-top: 1px solid var(--glass-border);
+}
+.mobile-menu-social h4 {
+font-size: 1rem;
+color: var(--text-gray);
+margin-bottom: var(--spacing-sm);
+font-weight: 500;
+}
+.mobile-social-icons {
+display: flex;
+gap: var(--spacing-sm);
+}
+.mobile-social-icons a {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 48px;
+height: 48px;
+background: var(--glass-bg);
+border: 1px solid var(--glass-border);
+border-radius: var(--border-radius-full);
+color: var(--text-light);
+text-decoration: none;
+transition: var(--transition-fast);
+}
+.mobile-social-icons a:hover {
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+transform: translateY(-3px) scale(1.1);
+box-shadow: var(--shadow-glow);
+}
+/* ===== HERO SLIDER - KEN BURNS EFFECT ===== */
+.hero-slider {
+height: 100vh;
+min-height: 700px;
+position: relative;
+overflow: hidden;
+}
+.slide {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-size: cover;
+background-position: center;
+opacity: 0;
+transition: opacity 1.5s ease-in-out;
+display: flex;
+align-items: center;
+justify-content: center;
+animation: kenBurns 12s ease-in-out infinite;
+}
+@keyframes kenBurns {
+0% { transform: scale(1); }
+50% { transform: scale(1.1); }
+100% { transform: scale(1); }
+}
+.slide:nth-child(2) { animation-delay: 4s; }
+.slide:nth-child(3) { animation-delay: 8s; }
+.slide.active {
+opacity: 1;
+z-index: 10;
+}
+.slide::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, rgba(26, 21, 18, 0.8), rgba(42, 34, 30, 0.7), rgba(58, 46, 40, 0.6));
+}
+.slide-content {
+position: relative;
+text-align: center;
+color: var(--text-white);
+max-width: 900px;
+padding: var(--spacing-xl);
+z-index: 2;
+animation: fadeInUp 1s ease;
+}
+.slide-content h2 {
+font-family: 'Playfair Display', serif;
+font-size: clamp(2.5rem, 5vw, 4rem);
+font-weight: 800;
+margin-bottom: var(--spacing-md);
+text-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+line-height: 1.2;
+background: linear-gradient(45deg, var(--primary-blue), var(--text-white));
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+animation: pulse 3s ease-in-out infinite;
+}
+.slide-content p {
+font-size: clamp(1.1rem, 2vw, 1.5rem);
+margin-bottom: var(--spacing-lg);
+opacity: 0.95;
+font-weight: 300;
+line-height: 1.6;
+}
+.slide-buttons {
+display: flex;
+gap: var(--spacing-sm);
+justify-content: center;
+flex-wrap: wrap;
+}
+/* ===== AI SEARCH CONTAINER - PREMIUM CHAT INTERFACE ===== */
+.filter-bar {
+padding: var(--spacing-xl) var(--spacing-md);
+background: linear-gradient(135deg, rgba(26, 21, 18, 0.9), rgba(42, 34, 30, 0.95));
+position: relative;
+overflow: hidden;
+}
+.filter-bar::before {
+content: '';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: radial-gradient(circle, rgba(96, 147, 191, 0.05) 0%, transparent 70%);
+z-index: 0;
+}
+.ai-search-container {
+width: 100%;
+max-width: 1200px;
+margin: 0 auto;
+background: var(--glass-bg);
+backdrop-filter: blur(20px);
+border: 1px solid var(--glass-border);
+border-radius: var(--border-radius-xl);
+padding: var(--spacing-lg);
+box-shadow: var(--shadow-lg);
+display: flex;
+flex-direction: column;
+gap: var(--spacing-md);
+position: relative;
+z-index: 2;
+}
+.ai-message {
+display: flex;
+align-items: flex-start;
+gap: var(--spacing-md);
+animation: fadeInUp 0.6s ease;
+}
+.ai-avatar {
+width: 100px;
+height: 100px;
+flex-shrink: 0;
+position: relative;
+}
+.ai-avatar::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+border-radius: var(--border-radius-full);
+animation: pulse 2s ease-in-out infinite;
+z-index: -1;
+}
+.ai-avatar img {
+width: 100%;
+height: 100%;
+object-fit: cover;
+border-radius: var(--border-radius-full);
+border: 3px solid var(--text-white);
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+aspect-ratio: 1 / 1;
+}
+.ai-text {
+background: linear-gradient(135deg, rgba(42, 34, 30, 0.9), rgba(58, 46, 40, 0.95));
+color: var(--text-light);
+padding: var(--spacing-md);
+border-radius: var(--border-radius-lg);
+font-size: 1.1rem;
+box-shadow: var(--shadow-md);
+font-weight: 500;
+line-height: 1.6;
+border-left: 4px solid var(--primary-blue);
+flex: 1;
+position: relative;
+overflow: hidden;
+}
+.ai-text::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(45deg, transparent, rgba(96, 147, 191, 0.1), transparent);
+transform: translateX(-100%);
+animation: shine 3s ease-in-out infinite;
+}
+.ai-text strong {
+color: var(--text-white);
+font-weight: 700;
+}
+.typing-animation {
+display: inline-block;
+overflow: hidden;
+border-right: 3px solid var(--primary-blue);
+white-space: nowrap;
+animation: typing-cursor 1s steps(30, end) infinite;
+}
+@keyframes typing-cursor {
+50% { border-color: transparent; }
+}
+.text-search-bar {
+width: 100%;
+}
+.text-search-bar input {
+width: 100%;
+padding: 16px 24px;
+border: 2px solid var(--glass-border);
+border-radius: 50px;
+font-size: 1.05rem;
+font-family: 'Montserrat', sans-serif;
+background: rgba(255, 255, 255, 0.08);
+color: var(--text-white);
+box-shadow: var(--shadow-sm);
+transition: var(--transition-fast);
+}
+.text-search-bar input::placeholder {
+color: rgba(255, 255, 255, 0.5);
+}
+.text-search-bar input:focus {
+outline: none;
+border-color: var(--primary-blue);
+box-shadow: 0 0 0 3px rgba(96, 147, 191, 0.2);
+transform: translateY(-2px);
+}
+.ai-options {
+display: flex;
+flex-wrap: wrap;
+gap: var(--spacing-sm);
+margin-top: var(--spacing-sm);
+}
+.ai-option-btn {
+flex: 1;
+min-width: 140px;
+padding: 16px 20px;
+border: 2px solid var(--glass-border);
+border-radius: var(--border-radius-md);
+background: var(--glass-bg);
+color: var(--text-light);
+font-weight: 600;
+cursor: pointer;
+transition: var(--transition-fast);
+text-align: center;
+box-shadow: var(--shadow-sm);
+position: relative;
+overflow: hidden;
+}
+.ai-option-btn::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 0;
+height: 100%;
+background: linear-gradient(45deg, rgba(96, 147, 191, 0.1), rgba(96, 147, 191, 0.2));
+transition: var(--transition-fast);
+z-index: -1;
+}
+.ai-option-btn:hover::before {
+width: 100%;
+}
+.ai-option-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 8px 25px rgba(96, 147, 191, 0.3);
+background: var(--glass-hover);
+border-color: rgba(255, 255, 255, 0.3);
+}
+.ai-option-btn.selected {
+background: linear-gradient(135deg, var(--earth-brown), var(--primary-blue));
+color: var(--text-white);
+border-color: var(--primary-blue);
+box-shadow: 0 6px 20px rgba(96, 147, 191, 0.4);
+}
+.ai-back-btn {
+background: rgba(96, 147, 191, 0.15);
+color: var(--text-white);
+border: 2px solid var(--glass-border);
+border-radius: var(--border-radius-md);
+padding: 10px 20px;
+font-weight: 600;
+cursor: pointer;
+display: none;
+align-self: flex-start;
+transition: var(--transition-fast);
+box-shadow: var(--shadow-sm);
+margin-top: var(--spacing-sm);
+}
+.ai-back-btn:hover {
+background: linear-gradient(135deg, var(--earth-brown), var(--primary-blue));
+border-color: var(--primary-blue);
+transform: translateY(-2px);
+box-shadow: 0 6px 20px rgba(96, 147, 191, 0.3);
+}
+.ai-back-btn i {
+margin-right: 8px;
+}
+/* ===== PROPERTY GRID - GLASSMORPHISM CARDS ===== */
+.properties-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+gap: var(--spacing-lg);
+max-width: 1600px;
+margin: var(--spacing-xxl) auto;
+padding: 0 var(--spacing-md);
+grid-auto-rows: 1fr;
+}
+.property-card {
+background: var(--glass-bg);
+backdrop-filter: blur(15px);
+border-radius: var(--border-radius-lg);
+overflow: hidden;
+box-shadow: var(--shadow-md);
+transition: var(--transition-normal);
+cursor: pointer;
+position: relative;
+border: 1px solid var(--glass-border);
+min-height: 480px;
+display: flex;
+flex-direction: column;
+opacity: 0;
+transform: translateY(50px);
+animation: fadeInUp 0.8s ease forwards;
+animation-delay: calc(0.1s * var(--delay));
+}
+.property-card::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(135deg, transparent, rgba(96, 147, 191, 0.05));
+opacity: 0;
+transition: var(--transition-normal);
+z-index: 1;
+}
+.property-card:hover::before {
+opacity: 1;
+}
+.property-card:nth-child(1) { --delay: 1; }
+.property-card:nth-child(2) { --delay: 2; }
+.property-card:nth-child(3) { --delay: 3; }
+.property-card:nth-child(4) { --delay: 4; }
+.property-card:hover {
+transform: translateY(-15px) perspective(1000px) rotateX(5deg);
+box-shadow: var(--shadow-xl), var(--shadow-glow);
+border-color: rgba(96, 147, 191, 0.4);
+z-index: 10;
+}
+.property-card img {
+width: 100%;
+height: 280px;
+object-fit: cover;
+transition: var(--transition-normal);
+flex-shrink: 0;
+}
+.property-card:hover img {
+transform: scale(1.1) rotate(2deg);
+filter: brightness(1.1);
+}
+.property-badge {
+position: absolute;
+top: var(--spacing-sm);
+right: var(--spacing-sm);
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+color: var(--text-white);
+padding: 0.5rem 1.2rem;
+border-radius: 50px;
+font-size: 0.85rem;
+font-weight: 700;
+z-index: 2;
+text-transform: uppercase;
+letter-spacing: 0.5px;
+box-shadow: var(--shadow-sm);
+animation: float 3s ease-in-out infinite;
+}
+.badge-featured { background: linear-gradient(45deg, var(--primary-blue), var(--light-blue)); }
+.badge-new { background: linear-gradient(45deg, var(--olive-green), var(--primary-blue)); }
+.badge-hot { background: linear-gradient(45deg, var(--golden-orange), var(--earth-brown)); }
+.badge-premium { background: linear-gradient(45deg, var(--golden-orange), var(--light-blue)); }
+.property-info {
+padding: var(--spacing-md);
+flex-grow: 1;
+display: flex;
+flex-direction: column;
+}
+.property-card h3 {
+font-family: 'Playfair Display', serif;
+font-size: 1.6rem;
+margin-bottom: var(--spacing-sm);
+color: var(--text-white);
+line-height: 1.3;
+font-weight: 700;
+}
+.property-card p {
+color: var(--text-gray);
+margin-bottom: var(--spacing-md);
+line-height: 1.7;
+font-size: 0.95rem;
+flex-grow: 1;
+font-weight: 300;
+}
+.price {
+font-family: 'Playfair Display', serif;
+font-size: 1.8rem;
+font-weight: 800;
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+margin: var(--spacing-sm) 0;
+text-align: center;
+display: block;
+}
+.property-whatsapp {
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+color: var(--text-white);
+padding: 1rem 1.5rem;
+border: none;
+border-radius: var(--border-radius-md);
+cursor: pointer;
+width: 100%;
+font-weight: 700;
+font-size: 1rem;
+transition: var(--transition-fast);
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 0.5rem;
+margin-top: auto;
+box-shadow: var(--shadow-glow);
+position: relative;
+overflow: hidden;
+}
+.property-whatsapp::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 0;
+height: 100%;
+background: linear-gradient(45deg, var(--light-blue), #6093BF);
+transition: var(--transition-fast);
+z-index: -1;
+}
+.property-whatsapp:hover::before {
+width: 100%;
+}
+.property-whatsapp:hover {
+transform: translateY(-3px);
+box-shadow: 0 8px 30px rgba(96, 147, 191, 0.6);
+background: linear-gradient(45deg, var(--light-blue), #6093BF);
+}
+.property-whatsapp i {
+font-size: 1.2rem;
+}
+/* ===== DEVELOPERS SECTION ===== */
+.developers-section {
+background: linear-gradient(135deg, var(--secondary-dark), var(--tertiary-dark), var(--primary-dark));
+color: var(--text-white);
+padding: var(--spacing-xxl) var(--spacing-md);
+position: relative;
+overflow: hidden;
+}
+.developers-section::before {
+content: '';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: radial-gradient(circle, rgba(96, 147, 191, 0.05) 0%, transparent 70%);
+z-index: 0;
+}
+.developers-container {
+max-width: 1600px;
+margin: 0 auto;
+position: relative;
+z-index: 2;
+}
+.developers-header {
+text-align: center;
+margin-bottom: var(--spacing-xxl);
+animation: fadeInUp 0.8s ease;
+}
+.developers-header h2 {
+font-family: 'Playfair Display', serif;
+font-size: clamp(2.5rem, 4vw, 3.5rem);
+margin-bottom: var(--spacing-md);
+background: linear-gradient(45deg, var(--primary-blue), var(--text-white));
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+font-weight: 800;
+}
+.developers-header p {
+font-size: 1.2rem;
+color: var(--text-gray);
+max-width: 800px;
+margin: 0 auto;
+line-height: 1.8;
+font-weight: 300;
+}
+.developers-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: var(--spacing-lg);
+max-width: 1400px;
+margin: 0 auto;
+}
+.developer-card {
+background: var(--glass-bg);
+backdrop-filter: blur(15px);
+border-radius: var(--border-radius-xl);
+overflow: hidden;
+box-shadow: var(--shadow-lg);
+transition: var(--transition-normal);
+border: 1px solid var(--glass-border);
+text-align: center;
+padding: var(--spacing-lg) var(--spacing-md);
+opacity: 0;
+transform: translateY(40px);
+animation: fadeInUp 0.8s ease forwards;
+animation-delay: calc(0.15s * var(--delay));
+}
+.developer-card:nth-child(1) { --delay: 1; }
+.developer-card:nth-child(2) { --delay: 2; }
+.developer-card:nth-child(3) { --delay: 3; }
+.developer-card:nth-child(4) { --delay: 4; }
+.developer-card:nth-child(5) { --delay: 5; }
+.developer-card:hover {
+transform: translateY(-12px);
+box-shadow: var(--shadow-xl), var(--shadow-glow);
+border-color: rgba(96, 147, 191, 0.4);
+}
+.developer-logo-container {
+width: 180px;
+height: 120px;
+margin: 0 auto var(--spacing-md);
+display: flex;
+align-items: center;
+justify-content: center;
+background: rgba(255, 255, 255, 0.08);
+border-radius: var(--border-radius-md);
+padding: var(--spacing-sm);
+border: 2px solid var(--glass-border);
+transition: var(--transition-fast);
+}
+.developer-card:hover .developer-logo-container {
+background: rgba(96, 147, 191, 0.1);
+border-color: rgba(96, 147, 191, 0.4);
+transform: scale(1.08) rotate(3deg);
+box-shadow: var(--shadow-glow);
+}
+.developer-logo {
+max-width: 100%;
+max-height: 100%;
+object-fit: contain;
+filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+transition: var(--transition-fast);
+}
+.developer-card:hover .developer-logo {
+filter: drop-shadow(0 6px 15px rgba(96, 147, 191, 0.4));
+}
+.developer-name {
+font-family: 'Playfair Display', serif;
+font-size: 1.8rem;
+margin-bottom: var(--spacing-md);
+color: var(--text-white);
+font-weight: 700;
+}
+.about-developer-btn {
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+color: var(--text-white);
+border: none;
+padding: 1rem 2rem;
+border-radius: var(--border-radius-md);
+font-weight: 700;
+font-size: 1rem;
+cursor: pointer;
+transition: var(--transition-fast);
+box-shadow: var(--shadow-glow);
+display: inline-flex;
+align-items: center;
+gap: 8px;
+position: relative;
+overflow: hidden;
+}
+.about-developer-btn::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 0;
+height: 100%;
+background: linear-gradient(45deg, var(--light-blue), #6093BF);
+transition: var(--transition-fast);
+z-index: -1;
+}
+.about-developer-btn:hover::before {
+width: 100%;
+}
+.about-developer-btn:hover {
+transform: translateY(-3px);
+box-shadow: 0 8px 30px rgba(96, 147, 191, 0.6);
+background: linear-gradient(45deg, var(--light-blue), #6093BF);
+}
+/* ===== MODALS ===== */
+.modal, .developer-modal {
+display: none;
+position: fixed;
+z-index: 2000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background-color: rgba(0, 0, 0, 0.92);
+backdrop-filter: blur(10px);
+}
+.modal-content, .developer-modal-content {
+background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+margin: 3% auto;
+padding: var(--spacing-xl);
+border-radius: var(--border-radius-xl);
+width: 90%;
+max-width: 950px;
+max-height: 90vh;
+overflow-y: auto;
+position: relative;
+animation: modalSlideIn 0.4s ease;
+box-shadow: var(--shadow-xl);
+border: 1px solid var(--glass-border);
+}
+@keyframes modalSlideIn {
+from { opacity: 0; transform: translateY(-60px) scale(0.95); }
+to { opacity: 1; transform: translateY(0) scale(1); }
+}
+.developer-modal-content {
+background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark), var(--tertiary-dark));
+color: var(--text-white);
+border: 1px solid rgba(96, 147, 191, 0.3);
+}
+.close, .developer-modal-close {
+position: absolute;
+right: var(--spacing-md);
+top: var(--spacing-md);
+font-size: 2.5rem;
+cursor: pointer;
+color: var(--text-gray);
+transition: var(--transition-fast);
+z-index: 10;
+background: none;
+border: none;
+padding: 0;
+}
+.close:hover, .developer-modal-close:hover {
+color: var(--primary-blue);
+transform: rotate(90deg);
+}
+.gallery {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+gap: var(--spacing-md);
+margin-bottom: var(--spacing-lg);
+}
+.gallery img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+border-radius: var(--border-radius-md);
+transition: var(--transition-fast);
+cursor: pointer;
+border: 2px solid var(--glass-border);
+}
+.gallery img:hover {
+transform: scale(1.08);
+box-shadow: var(--shadow-glow);
+border-color: var(--primary-blue);
+}
+.property-details-modal {
+background: var(--glass-bg);
+backdrop-filter: blur(15px);
+border-radius: var(--border-radius-lg);
+padding: var(--spacing-lg);
+margin: var(--spacing-lg) 0;
+border: 1px solid var(--glass-border);
+}
+.property-details-modal h4 {
+font-family: 'Playfair Display', serif;
+font-size: 1.5rem;
+color: var(--text-white);
+margin-bottom: var(--spacing-md);
+padding-bottom: var(--spacing-sm);
+border-bottom: 2px solid var(--primary-blue);
+text-align: center;
+font-weight: 700;
+}
+.detail-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+gap: var(--spacing-md);
+}
+.detail-item-modal {
+background: rgba(255, 255, 255, 0.06);
+padding: var(--spacing-md);
+border-radius: var(--border-radius-md);
+border: 1px solid var(--glass-border);
+text-align: center;
+transition: var(--transition-fast);
+}
+.detail-item-modal:hover {
+transform: translateY(-5px);
+box-shadow: var(--shadow-md);
+border-color: var(--primary-blue);
+background: rgba(96, 147, 191, 0.08);
+}
+.detail-item-modal strong {
+display: block;
+color: var(--text-white);
+font-size: 1rem;
+margin-bottom: var(--spacing-xs);
+font-weight: 700;
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+}
+.detail-item-modal strong i {
+color: var(--primary-blue);
+font-size: 1.3rem;
+}
+.detail-item-modal span {
+font-weight: 800;
+color: var(--text-white);
+font-size: 1.3rem;
+display: block;
+margin-top: 5px;
+font-family: 'Playfair Display', serif;
+}
+.modal-whatsapp {
+background: linear-gradient(45deg, var(--primary-blue), var(--primary-blue));
+color: var(--text-white);
+padding: 1.3rem 2.5rem;
+border: none;
+border-radius: var(--border-radius-md);
+cursor: pointer;
+font-size: 1.3rem;
+font-weight: 700;
+transition: var(--transition-fast);
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 0.8rem;
+margin: var(--spacing-xl) 0;
+width: 100%;
+box-shadow: var(--shadow-glow);
+position: relative;
+overflow: hidden;
+}
+.modal-whatsapp::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 0;
+height: 100%;
+background: linear-gradient(45deg, var(--light-blue), #6093BF);
+transition: var(--transition-fast);
+z-index: -1;
+}
+.modal-whatsapp:hover::before {
+width: 100%;
+}
+.modal-whatsapp:hover {
+transform: translateY(-5px);
+box-shadow: 0 10px 40px rgba(96, 147, 191, 0.7);
+}
+/* ===== DEVELOPER MODAL SPECIFIC ===== */
+.modal-developer-logo-section {
+text-align: center;
+margin-bottom: 2.8rem;
+padding-bottom: 1.8rem;
+border-bottom: 2px solid rgba(96, 147, 191, 0.25);
+}
+.modal-developer-logo-container {
+width: 220px;
+height: 130px;
+margin: 0 auto 1.5rem;
+display: flex;
+align-items: center;
+justify-content: center;
+background: rgba(255, 255, 255, 0.07);
+border-radius: 20px;
+border: 2px solid var(--glass-border);
+box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+transition: all 0.4s ease;
+}
+.modal-developer-logo-container:hover {
+transform: scale(1.05) rotate(2deg);
+box-shadow: 0 12px 35px rgba(96, 147, 191, 0.35), 0 0 25px rgba(96, 147, 191, 0.15);
+border-color: rgba(96, 147, 191, 0.5);
+}
+.modal-developer-logo {
+max-width: 90%;
+max-height: 85%;
+object-fit: contain;
+filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.4));
+transition: filter 0.3s ease;
+}
+.modal-developer-logo-container:hover .modal-developer-logo {
+filter: drop-shadow(0 6px 18px rgba(96, 147, 191, 0.5));
+}
+.modal-developer-name {
+font-family: 'Playfair Display', serif;
+font-size: 2.4rem;
+font-weight: 800;
+background: linear-gradient(45deg, var(--primary-blue), var(--text-white));
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+margin-top: 0.8rem;
+letter-spacing: -0.5px;
+}
+.modal-developer-grid {
+display: grid;
+grid-template-columns: 1fr;
+gap: 2rem;
+margin-bottom: 3rem;
+}
+@media (min-width: 768px) {
+.modal-developer-grid {
+grid-template-columns: 1fr 1fr;
+}
+}
+.modal-section {
+background: rgba(15, 26, 40, 0.75);
+border-radius: 22px;
+padding: 1.8rem;
+border: 1px solid rgba(255, 255, 255, 0.12);
+box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+transition: all 0.35s ease;
+}
+.modal-section:hover {
+transform: translateY(-5px);
+box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4), 0 0 20px rgba(96, 147, 191, 0.15);
+border-color: rgba(96, 147, 191, 0.3);
+}
+.modal-section h3 {
+font-family: 'Montserrat', sans-serif;
+font-size: 1.65rem;
+font-weight: 700;
+color: var(--text-white);
+display: flex;
+align-items: center;
+gap: 10px;
+margin-bottom: 1.3rem;
+position: relative;
+padding-bottom: 10px;
+}
+.modal-section h3::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 55px;
+height: 3px;
+background: linear-gradient(90deg, var(--primary-blue), var(--light-blue));
+border-radius: 2px;
+}
+.about-content {
+color: var(--text-gray);
+line-height: 1.75;
+font-weight: 300;
+font-size: 1.05rem;
+letter-spacing: 0.3px;
+}
+.projects-grid {
+display: flex;
+flex-direction: column;
+gap: 14px;
+}
+.project-item {
+background: rgba(20, 30, 50, 0.85);
+border-radius: 18px;
+padding: 1.3rem;
+border-left: 3px solid var(--primary-blue);
+transition: all 0.3s ease;
+position: relative;
+overflow: hidden;
+}
+.project-item::before {
+content: '';
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: linear-gradient(90deg, rgba(96, 147, 191, 0.07) 0%, transparent 70%);
+opacity: 0;
+transition: opacity 0.4s ease;
+z-index: -1;
+}
+.project-item:hover {
+transform: translateX(5px);
+border-left-color: var(--light-blue);
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+.project-item:hover::before {
+opacity: 1;
+}
+.project-item h4 {
+font-family: 'Montserrat', sans-serif;
+font-size: 1.25rem;
+color: var(--text-white);
+margin-bottom: 6px;
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+font-weight: 600;
+}
+.project-item p {
+color: var(--text-gray);
+font-size: 0.98rem;
+line-height: 1.6;
+margin: 0;
+font-weight: 300;
+letter-spacing: 0.2px;
+}
+.project-status {
+font-size: 0.82rem;
+padding: 3px 10px;
+border-radius: 14px;
+font-weight: 700;
+letter-spacing: 0.5px;
+margin-top: 4px;
+display: inline-block;
+}
+.status-completed {
+background: rgba(102, 115, 56, 0.18);
+color: var(--olive-green);
+border: 1px solid rgba(102, 115, 56, 0.3);
+}
+.status-ongoing {
+background: rgba(96, 147, 191, 0.18);
+color: var(--primary-blue);
+border: 1px solid rgba(96, 147, 191, 0.35);
+}
+.status-planned {
+background: rgba(242, 181, 107, 0.18);
+color: var(--golden-orange);
+border: 1px solid rgba(242, 181, 107, 0.4);
+}
+/* ===== CHAT WIDGET ===== */
+#dubai-chat-widget {
+position: fixed;
+bottom: 25px;
+right: 25px;
+z-index: 2147483647;
+transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+box-shadow: 0 4px 20px var(--shadow-medium);
+}
+#dubai-chat-widget.minimized {
+width: 72px;
+height: 72px;
+border-radius: 50%;
+background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+box-shadow: 0 6px 25px rgba(96, 147, 191, 0.5);
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+border: 2px solid rgba(255, 255, 255, 0.15);
+}
+#dubai-chat-widget.minimized:hover {
+transform: scale(1.08) rotate(5deg);
+box-shadow: 0 8px 35px rgba(96, 147, 191, 0.7);
+}
+#dubai-chat-widget.minimized .chat-icon {
+font-size: 2.1rem;
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+#dubai-chat-widget.minimized .chat-badge {
+position: absolute;
+top: 8px;
+right: 8px;
+width: 22px;
+height: 22px;
+background: var(--primary-blue);
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 0.75rem;
+font-weight: 700;
+color: white;
+border: 2px solid white;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+animation: pulseBadge 2s infinite;
+}
+@keyframes pulseBadge {
+0%, 100% { transform: scale(1); }
+50% { transform: scale(1.2); }
+}
+#dubai-chat-widget.expanded {
+width: 380px;
+max-height: 85vh;
+border-radius: 24px;
+overflow: hidden;
+display: flex;
+flex-direction: column;
+background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
+box-shadow: 0 15px 50px var(--shadow-heavy);
+}
+.chat-widget-header {
+padding: 18px 22px;
+display: flex;
+align-items: center;
+gap: 14px;
+border-bottom: 1px solid rgba(96, 147, 191, 0.25);
+position: relative;
+background: rgba(15, 23, 42, 0.95);
+}
+.chat-widget-avatar {
+width: 48px;
+height: 48px;
+border-radius: 50%;
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+display: flex;
+align-items: center;
+justify-content: center;
+font-weight: 800;
+font-size: 1.6rem;
+flex-shrink: 0;
+box-shadow: 0 4px 15px rgba(96, 147, 191, 0.4);
+border: 2px solid rgba(255, 255, 255, 0.15);
+}
+.chat-widget-title h3 {
+font-size: 1.45rem;
+font-weight: 700;
+margin-bottom: 2px;
+background: linear-gradient(to right, #ffffff, #e0e6f0);
+-webkit-background-clip: text;
+background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+.chat-widget-title p {
+font-size: 0.95rem;
+opacity: 0.85;
+margin: 0;
+color: var(--text-gray);
+}
+.chat-widget-close {
+position: absolute;
+right: 18px;
+top: 50%;
+transform: translateY(-50%);
+background: rgba(255, 255, 255, 0.1);
+border: none;
+color: rgba(255, 255, 255, 0.8);
+font-size: 1.6rem;
+width: 42px;
+height: 42px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: all 0.3s ease;
+flex-shrink: 0;
+}
+.chat-widget-close:hover {
+background: rgba(96, 147, 191, 0.2);
+color: var(--primary-blue);
+transform: translateY(-50%) scale(1.1);
+}
+.chat-widget-messages {
+padding: 20px;
+flex: 1;
+overflow-y: auto;
+display: flex;
+flex-direction: column;
+gap: 18px;
+max-height: 65vh;
+background: rgba(20, 28, 45, 0.9);
+}
+.chat-message {
+max-width: 88%;
+padding: 16px 20px;
+border-radius: 20px;
+line-height: 1.55;
+font-size: 0.98rem;
+animation: fadeIn 0.35s ease;
+position: relative;
+}
+@keyframes fadeIn {
+from { opacity: 0; transform: translateY(12px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.chat-message.user {
+align-self: flex-end;
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+color: white;
+border-bottom-right-radius: 8px;
+box-shadow: 0 4px 15px rgba(96, 147, 191, 0.3);
+}
+.chat-message.bot {
+align-self: flex-start;
+background: rgba(30, 42, 70, 0.85);
+color: #e6e9ef;
+border: 1px solid rgba(255, 255, 255, 0.1);
+border-bottom-left-radius: 8px;
+}
+.chat-message.bot strong {
+color: var(--primary-blue);
+}
+.chat-suggestions {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+margin-top: 12px;
+}
+.chat-suggestion-btn {
+background: rgba(96, 147, 191, 0.12);
+color: var(--primary-blue);
+border: none;
+border-radius: 16px;
+padding: 8px 14px;
+font-size: 0.85rem;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.25s ease;
+white-space: nowrap;
+}
+.chat-suggestion-btn:hover {
+background: rgba(96, 147, 191, 0.22);
+transform: translateY(-2px);
+box-shadow: 0 2px 8px rgba(96, 147, 191, 0.2);
+}
+.chat-widget-input {
+padding: 18px;
+background: rgba(15, 23, 42, 0.95);
+border-top: 1px solid rgba(255, 255, 255, 0.1);
+display: flex;
+gap: 12px;
+}
+.chat-widget-input input {
+flex: 1;
+padding: 15px 20px;
+border: 2px solid rgba(255, 255, 255, 0.15);
+border-radius: 28px;
+font-size: 1.05rem;
+background: rgba(10, 14, 23, 0.8);
+color: white;
+outline: none;
+transition: border-color 0.3s ease;
+}
+.chat-widget-input input:focus {
+border-color: var(--primary-blue);
+box-shadow: 0 0 0 3px rgba(96, 147, 191, 0.2);
+}
+.chat-widget-input input::placeholder {
+color: rgba(255, 255, 255, 0.5);
+}
+.chat-widget-input button {
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+color: white;
+border: none;
+width: 52px;
+height: 52px;
+border-radius: 50%;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.35rem;
+transition: all 0.35s ease;
+flex-shrink: 0;
+box-shadow: 0 4px 15px rgba(96, 147, 191, 0.4);
+}
+.chat-widget-input button:hover {
+transform: scale(1.1) rotate(5deg);
+box-shadow: 0 6px 25px rgba(96, 147, 191, 0.6);
+}
+.whatsapp-handoff {
+background: rgba(96, 147, 191, 0.12);
+border-left: 4px solid var(--primary-blue);
+padding: 16px;
+border-radius: 0 16px 16px 0;
+margin: 12px 0;
+cursor: pointer;
+transition: all 0.3s ease;
+display: flex;
+align-items: center;
+gap: 12px;
+box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.whatsapp-handoff:hover {
+background: rgba(96, 147, 191, 0.2);
+transform: translateX(4px);
+box-shadow: 0 4px 12px rgba(96, 147, 191, 0.3);
+}
+.whatsapp-handoff i {
+color: var(--primary-blue);
+font-size: 1.4rem;
+min-width: 24px;
+}
+.developer-highlight {
+background: rgba(96, 147, 191, 0.09);
+border-radius: 16px;
+padding: 16px;
+margin: 12px 0;
+border-left: 3px solid var(--primary-blue);
+transition: all 0.3s ease;
+}
+.developer-highlight:hover {
+background: rgba(96, 147, 191, 0.12);
+transform: translateX(3px);
+}
+.project-list {
+margin: 10px 0 5px 15px;
+padding-left: 10px;
+border-left: 2px dashed rgba(96, 147, 191, 0.3);
+}
+.project-list li {
+margin-bottom: 5px;
+font-size: 0.95rem;
+color: var(--text-gray);
+}
+.typing-indicator {
+display: flex;
+align-items: center;
+gap: 6px;
+padding: 12px;
+}
+.typing-dot {
+width: 8px;
+height: 8px;
+background: var(--primary-blue);
+border-radius: 50%;
+animation: typing 1.4s infinite ease-in-out;
+}
+.typing-dot:nth-child(2) { animation-delay: 0.2s; }
+.typing-dot:nth-child(3) { animation-delay: 0.4s; }
+@keyframes typing {
+0%, 100% { transform: scale(0.7); opacity: 0.5; }
+50% { transform: scale(1.2); opacity: 1; }
+}
+/* ===== FOOTER ===== */
+.footer {
+background: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark), var(--tertiary-dark));
+color: var(--text-white);
+padding: var(--spacing-xxl) var(--spacing-md) var(--spacing-lg);
+margin-top: var(--spacing-xxl);
+position: relative;
+overflow: hidden;
+}
+.footer::before {
+content: '';
+position: absolute;
+top: -50%;
+left: -50%;
+width: 200%;
+height: 200%;
+background: radial-gradient(circle, rgba(96, 147, 191, 0.05) 0%, transparent 70%);
+z-index: 0;
+}
+.footer-content {
+max-width: 1600px;
+margin: 0 auto;
+position: relative;
+z-index: 2;
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: var(--spacing-xl);
+}
+.footer-column h3 {
+font-family: 'Playfair Display', serif;
+font-size: 1.8rem;
+margin-bottom: var(--spacing-md);
+position: relative;
+padding-bottom: var(--spacing-xs);
+font-weight: 700;
+}
+.footer-column h3::after {
+content: '';
+position: absolute;
+bottom: 0;
+left: 0;
+width: 60px;
+height: 3px;
+background: linear-gradient(45deg, var(--primary-blue), var(--primary-blue));
+border-radius: 2px;
+}
+.footer-column p {
+margin-bottom: var(--spacing-md);
+color: var(--text-gray);
+line-height: 1.8;
+font-weight: 300;
+}
+.footer-links {
+list-style: none;
+}
+.footer-links li {
+margin-bottom: 0.8rem;
+}
+.footer-links a {
+color: var(--text-gray);
+text-decoration: none;
+transition: var(--transition-fast);
+display: flex;
+align-items: center;
+gap: 0.5rem;
+font-weight: 400;
+}
+.footer-links a:hover {
+color: var(--primary-blue);
+transform: translateX(5px);
+}
+.footer-links a i {
+font-size: 0.9rem;
+color: var(--primary-blue);
+}
+.contact-info {
+list-style: none;
+}
+.contact-info li {
+margin-bottom: 1.2rem;
+display: flex;
+align-items: flex-start;
+gap: 1rem;
+color: var(--text-gray);
+font-weight: 300;
+}
+.contact-info i {
+color: var(--primary-blue);
+font-size: 1.2rem;
+margin-top: 0.2rem;
+min-width: 20px;
+}
+.social-icons {
+display: flex;
+gap: var(--spacing-sm);
+margin-top: var(--spacing-md);
+}
+.social-icons a {
+display: flex;
+align-items: center;
+justify-content: center;
+width: 45px;
+height: 45px;
+background: var(--glass-bg);
+border: 1px solid var(--glass-border);
+border-radius: var(--border-radius-full);
+color: var(--text-white);
+text-decoration: none;
+transition: var(--transition-fast);
+}
+.social-icons a:hover {
+background: linear-gradient(45deg, var(--primary-blue), var(--light-blue));
+transform: translateY(-3px) scale(1.1);
+box-shadow: var(--shadow-glow);
+}
+.newsletter-form {
+display: flex;
+margin-top: var(--spacing-md);
+}
+.newsletter-form input {
+flex: 1;
+padding: 0.9rem 1.2rem;
+border: 1px solid var(--glass-border);
+border-radius: var(--border-radius-md) 0 0 var(--border-radius-md);
+font-size: 1rem;
+background: var(--glass-bg);
+color: var(--text-white);
+}
+.newsletter-form button {
+background: linear-gradient(45deg, var(--primary-blue), var(--primary-blue));
+color: var(--text-white);
+border: none;
+padding: 0 1.5rem;
+border-radius: 0 var(--border-radius-md) var(--border-radius-md) 0;
+cursor: pointer;
+font-weight: 600;
+transition: var(--transition-fast);
+}
+.newsletter-form button:hover {
+background: linear-gradient(45deg, var(--light-blue), #6093BF);
+transform: translateX(3px);
+}
+.footer-bottom {
+text-align: center;
+padding-top: var(--spacing-lg);
+margin-top: var(--spacing-lg);
+border-top: 1px solid var(--glass-border);
+color: var(--text-gray);
+font-size: 0.95rem;
+font-weight: 300;
+}
+.footer-bottom a {
+color: var(--primary-blue);
+text-decoration: none;
+font-weight: 500;
+}
+.footer-bottom a:hover {
+text-decoration: underline;
+}
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+.hero-slider {
+height: 80vh;
+min-height: 600px;
+}
+.slide-content h2 {
+font-size: clamp(2rem, 6vw, 2.8rem);
+}
+.slide-content p {
+font-size: clamp(1rem, 3vw, 1.2rem);
+}
+.properties-grid {
+grid-template-columns: 1fr;
+padding: var(--spacing-lg) var(--spacing-sm);
+gap: var(--spacing-md);
+}
+.property-card {
+min-height: 450px;
+}
+.property-card img {
+height: 220px;
+}
+.property-info {
+padding: var(--spacing-md);
+}
+.property-card h3 {
+font-size: 1.4rem;
+}
+.price {
+font-size: 1.5rem;
+}
+.developers-header h2 {
+font-size: 2.2rem;
+}
+.developers-grid {
+grid-template-columns: 1fr;
+gap: var(--spacing-md);
+}
+.developer-logo-container {
+width: 150px;
+height: 100px;
+}
+.developer-name {
+font-size: 1.5rem;
+}
+.floating-whatsapp {
+bottom: 1.5rem;
+right: 1.5rem;
+width: 55px;
+height: 55px;
+font-size: 1.6rem;
+}
+.scroll-to-top {
+bottom: 80px;
+right: 1.5rem;
+width: 45px;
+height: 45px;
+}
+.footer-content {
+grid-template-columns: 1fr;
+gap: var(--spacing-lg);
+}
+.footer {
+padding: var(--spacing-xl) var(--spacing-sm) var(--spacing-md);
+}
+.newsletter-form {
+flex-direction: column;
+gap: var(--spacing-xs);
+}
+.newsletter-form input,
+.newsletter-form button {
+width: 100%;
+border-radius: var(--border-radius-md);
+}
+.detail-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+@media (max-width: 480px) {
+.header-logo {
+height: 50px;
+}
+.hamburger-menu {
+width: 35px;
+height: 30px;
+}
+.mobile-menu {
+max-width: 100%;
+width: 100%;
+}
+.slide-content {
+padding: var(--spacing-lg);
+}
+.slide-content h2 {
+font-size: clamp(1.8rem, 7vw, 2.4rem);
+}
+.ai-search-container {
+padding: var(--spacing-md);
+}
+.ai-avatar {
+width: 80px;
+height: 80px;
+}
+.ai-text {
+padding: var(--spacing-sm);
+font-size: 1rem;
+}
+.ai-option-btn {
+min-width: 120px;
+padding: 12px 16px;
+font-size: 0.9rem;
+}
+.floating-whatsapp {
+width: 50px;
+height: 50px;
+font-size: 1.4rem;
+}
+.scroll-to-top {
+width: 40px;
+height: 40px;
+font-size: 1rem;
+}
+}
+/* ===== MODAL TEXT VISIBILITY FIX ===== */
+#modal-description,
+#modal-description h3,
+#modal-description p {
+color: var(--text-white) !important;
+font-weight: 300;
+}
+#modal-description strong {
+color: var(--primary-blue) !important;
+font-weight: 600;
+}
+.modal-content h2,
+.modal-content h3 {
+color: var(--text-white) !important;
+}
+</style>
+</head>
+<body>
+<!-- Header with Hamburger Menu -->
+<header class="header" id="header">
+<div class="header-container">
+<div class="header-logo-container">
+<img src="images-logo/daonelogo.png" alt="Da One Living Logo" class="header-logo">
+</div>
+<div class="hamburger-menu" id="hamburgerMenu">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</header>
+<!-- Mobile Menu Overlay -->
+<div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+<div class="mobile-menu" id="mobileMenu">
+<div class="mobile-menu-header">
+<div class="logo">Da One<span>Living</span></div>
+<button class="mobile-menu-close" id="mobileMenuClose">
+<i class="fas fa-times"></i>
+</button>
+</div>
+<ul class="mobile-nav-menu">
+<li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+<li><a href="#developers"><i class="fas fa-city"></i> Developers</a></li>
+<li><a href="#properties"><i class="fas fa-building"></i> Properties</a></li>
+<li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+</ul>
+<button class="mobile-cta-button" onclick="openWhatsApp(); closeMobileMenu();">
+<i class="fab fa-whatsapp"></i> Enquire Now
+</button>
+<div class="mobile-menu-social">
+<h4>Follow Us</h4>
+<div class="mobile-social-icons">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+</div>
+</div>
+</div>
+<!-- Hero Slider with Ken Burns Effect -->
+<section class="hero-slider" id="home">
+<div class="slide active" style="background-image: url('images/prophets-mosque.jpg');">
+<div class="slide-content">
+<h2>Al Masjid Al Nabawi</h2>
+<
+</div>
+</div>
+<div class="slide" style="background-image: url('images/medinah-skyline.jpg');">
+<div class="slide-content">
+<h2>Medinah Modern Living</h2>
+<p>Experience the blend of heritage and modern luxury in the City of the Prophet</p>
+<div class="slide-buttons">
+<button class="mobile-cta-button" onclick="openWhatsApp()">
+<i class="fab fa-whatsapp"></i> Enquire Now
+</button>
+</div>
+</div>
+</div>
+<div class="slide" style="background-image: url('images/medinah-residential.jpg');">
+<div class="slide-content">
+<h2>Prime Residential Communities</h2>
+<p>Smart cities, family hubs, and luxury investments near the Haram</p>
+<div class="slide-buttons">
+<button class="mobile-cta-button" onclick="openWhatsApp()">
+<i class="fab fa-whatsapp"></i> Enquire Now
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- AI-Guided Search Bar -->
+<div class="filter-bar" id="properties">
+<div class="ai-search-container">
+<div class="ai-message">
+<div class="ai-avatar">
+<img src="images-logo/daonelogo.png" alt="Da One Living Logo">
+</div>
+<div class="ai-text">
+<span id="aiPrompt">Hi! What type of property are you looking for in Medinah?</span>
+</div>
+</div>
+<div class="text-search-bar">
+<input type="text" id="filterSearch" placeholder="Search properties by name, location, or keyword…">
+</div>
+<div class="ai-options" id="aiOptions">
+<button class="ai-option-btn" data-value="">Any Property Type</button>
+<button class="ai-option-btn" data-value="villa">Villa</button>
+<button class="ai-option-btn" data-value="apartment">Apartment</button>
+<button class="ai-option-btn" data-value="studio">Studio</button>
+<button class="ai-option-btn" data-value="commercial">Commercial</button>
+</div>
+<button class="ai-back-btn" id="aiBackBtn">
+<i class="fas fa-arrow-left"></i> Back
+</button>
+<input type="hidden" id="filterPropertyType" value="">
+<input type="hidden" id="filterLocation" value="">
+<input type="hidden" id="filterBedrooms" value="">
+</div>
+</div>
+<!-- Property Cards Grid -->
+<div class="properties-grid" id="propertiesGrid">
+<!-- Property Card 1 - Rua Al Madinah -->
+<div class="property-card" data-property-type="apartment" data-location="central-area" data-bedrooms="2" data-developer="Rua Al Madinah" onclick="openModal(this)">
+<img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Rua Al Madinah">
+<div class="property-badge badge-premium">Premium</div>
+<div class="property-info">
+<h3>Rua Al Madinah Mega-Project</h3>
+<p>Part of the 1.5 million m² development east of the Prophet's Mosque. Modern living near the Haram.</p>
+<span class="price">SAR 1,200,000</span>
+<button class="property-whatsapp" onclick="openWhatsApp(); event.stopPropagation();">
+<i class="fab fa-whatsapp"></i> Enquire Now
+</button>
+</div>
+</div>
+<!-- Property Card 2 - KEC -->
+<div class="property-card" data-property-type="apartment" data-location="knowledge-city" data-bedrooms="1" data-developer="KEC" onclick="openModal(this)">
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="KEC Hub">
+<div class="property-badge badge-featured">Featured</div>
+<div class="property-info">
+<h3>KEC Hub Residences</h3>
+<p>Smart city living near the Haramain High-Speed Railway station. Part of Wasat Al Madinah.</p>
+<span class="price">SAR 850,000</span>
+<button class="property-whatsapp" onclick="openWhatsApp(); event.stopPropagation();">
+<i class="fab fa-whatsapp"></i> Enquire Now
+</button>
+</div>
+</div>
+<!-- Property Card 3 - NHC -->
+<div class="property-card" data-property-type="villa" data-location="al-dar" data-bedrooms="4" data-developer="NHC" onclick="openModal(this)">
+<img src="https://images.unsplash.com/photo-1600596542815-27b88e39e1d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="NHC Villa">
+<div class="property-badge badge-new">New</div>
+<div class="property-info">
+<h3>Al-Dar Destination Villa</h3>
+<p>Family-friendly suburb 7km from the Prophet's Mosque. Part of Rehab Al Dar project.</p>
+<span class="price">SAR 2,500,000</span>
+<button class="property-whatsapp" onclick="openWhatsApp(); event.stopPropagation();">
+<i class="fab fa-whatsapp"></i> Enquire Now
+</button>
+</div>
+</div>
+<!-- Property Card 4 - Taiba -->
+<div class="property-card" data-property-type="commercial" data-location="central-area" data-bedrooms="0" data-developer="Taiba" onclick="openModal(this)">
+<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Taiba Tower">
+<div class="property-badge badge-hot">Hot Deal</div>
+<div class="property-info">
+<h3>Novotel Madina Project</h3>
+<p>18-story luxury hotel project nearing completion in the northern central area.</p>
+<span class="price">SAR 5,000,000</span>
+<button class="property-whatsapp" onclick="openWhatsApp(); event.stopPropagation();">
+<i class="fab fa-whatsapp"></i> Enquire Now
+</button>
+</div>
+</div>
+</div>
+<!-- Developers Section -->
+<section class="developers-section" id="developers">
+<div class="developers-container">
+<div class="developers-header">
+<h2><i class="fas fa-building"></i> Premier Medinah Developers</h2>
+<
+</div>
+<div class="developers-grid">
+<!-- Developer Card 1 - Rua Al Madinah -->
+<div class="developer-card">
+<div class="developer-logo-container">
+<img src="images/rua-logo.png" alt="Rua Al Madinah Logo" class="developer-logo">
+</div>
+<h3 class="developer-name">Rua Al Madinah</h3>
+<button class="about-developer-btn" onclick="openDeveloperModal('rua')">
+<i class="fas fa-info-circle"></i> About Developer
+</button>
+</div>
+<!-- Developer Card 2 - KEC -->
+<div class="developer-card">
+<div class="developer-logo-container">
+<img src="images/kec-logo.png" alt="KEC Logo" class="developer-logo">
+</div>
+<h3 class="developer-name">Knowledge Economic City</h3>
+<button class="about-developer-btn" onclick="openDeveloperModal('kec')">
+<i class="fas fa-info-circle"></i> About Developer
+</button>
+</div>
+<!-- Developer Card 3 - NHC -->
+<div class="developer-card">
+<div class="developer-logo-container">
+<img src="images/nhc-logo.png" alt="NHC Logo" class="developer-logo">
+</div>
+<h3 class="developer-name">National Housing Co.</h3>
+<button class="about-developer-btn" onclick="openDeveloperModal('nhc')">
+<i class="fas fa-info-circle"></i> About Developer
+</button>
+</div>
+<!-- Developer Card 4 - Taiba -->
+<div class="developer-card">
+<div class="developer-logo-container">
+<img src="images/taiba-logo.png" alt="Taiba Logo" class="developer-logo">
+</div>
+<h3 class="developer-name">Taiba Investments</h3>
+<button class="about-developer-btn" onclick="openDeveloperModal('taiba')">
+<i class="fas fa-info-circle"></i> About Developer
+</button>
+</div>
+<!-- Developer Card 5 - Others -->
+<div class="developer-card">
+<div class="developer-logo-container">
+<img src="images/others-logo.png" alt="Other Developers Logo" class="developer-logo">
+</div>
+<h3 class="developer-name">Key Private Developers</h3>
+<button class="about-developer-btn" onclick="openDeveloperModal('others')">
+<i class="fas fa-info-circle"></i> About Developer
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Property Modal -->
+<div id="propertyModal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">&times;</span>
+<h2 id="modal-title">Luxury Medinah Apartment</h2>
+<div class="gallery">
+<img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Property Image 1">
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Property Image 2">
+<img src="https://images.unsplash.com/photo-1600596542815-27b88e39e1d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Property Image 3">
+<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="Property Image 4">
+</div>
+<div id="modal-description">
+<h3>Luxury Medinah Apartment</h3>
+<p>Premium luxury apartment in Medinah with proximity to the Prophet's Mosque. Features high-end finishes, spacious living areas, and access to world-class amenities.</p>
+<p><strong>Specifications:</strong> 2BR, 2BA, 1,200 sq ft, Modern design, Premium kitchen appliances, Private balcony</p>
+<p><strong>Location Benefits:</strong> Close to Haram, High-speed railway, and major attractions.</p>
+<p><strong>Amenities:</strong> 24/7 security, valet parking, spa and wellness center, children's play area</p>
+</div>
+<div class="property-details-modal">
+<h4>Property Details</h4>
+<div class="detail-grid" id="modal-property-details"></div>
+</div>
+<button class="modal-whatsapp" onclick="openWhatsApp()">
+<i class="fab fa-whatsapp"></i> Speak to an Agent
+</button>
+</div>
+</div>
+<!-- Developer Modal -->
+<div id="developerModal" class="developer-modal">
+<div class="developer-modal-content">
+<button class="developer-modal-close" onclick="closeDeveloperModal()">&times;</button>
+<div class="modal-developer-header">
+<div class="modal-developer-logo-container">
+<img src="" alt="Developer Logo" id="modalDeveloperLogo" class="modal-developer-logo">
+</div>
+<h2 class="modal-developer-name" id="modalDeveloperName">Developer Name</h2>
+</div>
+<div class="modal-developer-grid">
+<div class="modal-section">
+<h3><i class="fas fa-info-circle"></i> Who We Are</h3>
+<p id="modalWhoWeAre" class="about-content"></p>
+</div>
+<div class="modal-section">
+<h3><i class="fas fa-star"></i> Why Choose Us</h3>
+<p id="modalWhyChooseUs" class="about-content"></p>
+</div>
+</div>
+<!-- Projects Sections -->
+<div class="modal-developer-grid">
+<div class="modal-section">
+<h3><i class="fas fa-check-circle"></i> Projects We Done</h3>
+<div class="projects-grid" id="modalCompletedProjects"></div>
+</div>
+<div class="modal-section">
+<h3><i class="fas fa-hard-hat"></i> Projects We Busy With</h3>
+<div class="projects-grid" id="modalOngoingProjects"></div>
+</div>
+<div class="modal-section">
+<h3><i class="fas fa-lightbulb"></i> Projects We Planning</h3>
+<div class="projects-grid" id="modalPlannedProjects"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Footer -->
+<footer class="footer" id="contact">
+<div class="footer-content">
+<div class="footer-column">
+<h3>Da One Living</h3>
+<p>Da One Living is the premier real estate agency in Medinah, offering exclusive access to the city's most prestigious properties. We connect discerning clients with their dream homes and investment opportunities near the Haram.</p>
+<div class="social-icons">
+<a href="#"><i class="fab fa-facebook-f"></i></a>
+<a href="#"><i class="fab fa-instagram"></i></a>
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+</div>
+</div>
+<div class="footer-column">
+<h3>Quick Links</h3>
+<ul class="footer-links">
+<li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+<li><a href="#developers"><i class="fas fa-chevron-right"></i> Developers</a></li>
+<li><a href="#properties"><i class="fas fa-chevron-right"></i> Properties</a></li>
+<li><a href="#"><i class="fas fa-chevron-right"></i> Investment Guide</a></li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Contact Information</h3>
+<ul class="contact-info">
+<li>
+<i class="fas fa-map-marker-alt"></i>
+<span>Medinah, Kingdom of Saudi Arabia</span>
+</li>
+<li>
+<i class="fas fa-phone"></i>
+<span>+971 54 303 4025</span>
+</li>
+<li>
+<i class="fas fa-envelope"></i>
+<span>dawood@dubai-one.ae</span>
+</li>
+<li>
+<i class="fas fa-clock"></i>
+<span>Monday - Saturday: 9:00 AM - 8:00 PM</span>
+</li>
+</ul>
+</div>
+<div class="footer-column">
+<h3>Newsletter</h3>
+<p>Subscribe to receive the latest property listings and market updates.</p>
+<form class="newsletter-form" id="newsletterForm">
+<input type="email" placeholder="Your email address" required>
+<button type="submit"><i class="fas fa-paper-plane"></i></button>
+</form>
+<p style="font-size: 0.85rem; margin-top: 1rem; color: #b0b0b0;">We respect your privacy. Unsubscribe at any time.</p>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2025 Da One Living. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+</div>
+</footer>
+<!-- Da One Living AI Chat Widget -->
+<div id="dubai-chat-widget" class="minimized">
+<i class="fas fa-comments chat-icon"></i>
+<span class="chat-badge">?</span>
+</div>
+<script>
+// ===== CORE FUNCTIONALITY =====
+document.addEventListener('DOMContentLoaded', () => {
+// Header scroll effect
+const header = document.getElementById('header');
+let lastScroll = 0;
+window.addEventListener('scroll', () => {
+const currentScroll = window.pageYOffset;
+if (currentScroll > 50) {
+header.classList.add('scrolled');
+} else {
+header.classList.remove('scrolled');
+}
+lastScroll = currentScroll;
+});
+// Initialize property cards animation
+document.querySelectorAll('.property-card').forEach((card, index) => {
+card.style.animationDelay = `${index * 0.15}s`;
+});
+// Hamburger menu functionality
+const hamburger = document.getElementById('hamburgerMenu');
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+const mobileMenuClose = document.getElementById('mobileMenuClose');
+if (hamburger) {
+hamburger.addEventListener('click', () => {
+mobileMenu.classList.toggle('active');
+if (mobileMenuOverlay) mobileMenuOverlay.classList.toggle('active');
+hamburger.classList.toggle('active');
+document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : 'auto';
+});
+}
+if (mobileMenuClose) {
+mobileMenuClose.addEventListener('click', closeMobileMenu);
+}
+if (mobileMenuOverlay) {
+mobileMenuOverlay.addEventListener('click', closeMobileMenu);
+}
+// Smooth scrolling for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if (targetId === '#') return;
+const target = document.querySelector(targetId);
+if (target) {
+document.body.style.overflow = 'auto';
+closeMobileMenu();
+setTimeout(() => {
+target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}, 100);
+}
+});
+});
+// Initialize AI search
+aiSearch.init();
+aiSearch.renderInitialStep();
+// Initialize typing animation
+initTypingAnimation();
+});
+function closeMobileMenu() {
+const mobileMenu = document.getElementById('mobileMenu');
+const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+const hamburger = document.getElementById('hamburgerMenu');
+if (mobileMenu) mobileMenu.classList.remove('active');
+if (mobileMenuOverlay) mobileMenuOverlay.classList.remove('active');
+if (hamburger) hamburger.classList.remove('active');
+document.body.style.overflow = 'auto';
+}
+function initTypingAnimation() {
+const aiPrompt = document.getElementById('aiPrompt');
+if (!aiPrompt) return;
+const originalText = aiPrompt.textContent;
+aiPrompt.innerHTML = `<span class="typing-animation">${originalText}</span>`;
+setTimeout(() => {
+aiPrompt.innerHTML = originalText;
+}, 3000);
+}
+// ===== SLIDER FUNCTIONALITY =====
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+let slideInterval;
+function showSlide(index) {
+slides.forEach((slide, i) => {
+slide.classList.remove('active');
+if (i === index) slide.classList.add('active');
+});
+}
+function nextSlide() {
+currentSlide = (currentSlide + 1) % slides.length;
+showSlide(currentSlide);
+}
+function startSlider() {
+slideInterval = setInterval(nextSlide, 6000);
+}
+function stopSlider() {
+clearInterval(slideInterval);
+}
+const slider = document.querySelector('.hero-slider');
+slider.addEventListener('mouseenter', stopSlider);
+slider.addEventListener('mouseleave', startSlider);
+startSlider();
+// ===== WHATSAPP INTEGRATION =====
+function openWhatsApp() {
+const messages = [
+"Hello! I'm interested in property information from Da One Living.",
+"Hi! I'd like to learn more about Medinah properties.",
+"Hello! I found a property on your site and would like more details."
+];
+const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+const message = encodeURIComponent(randomMessage);
+const phoneNumber = "966500000000";
+window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
+}
+// ===== MODAL FUNCTIONALITY =====
+function openModal(propertyCard) {
+if (!propertyCard) return;
+const title = propertyCard.querySelector('h3').textContent;
+const description = propertyCard.querySelector('p').textContent;
+const mainImage = propertyCard.querySelector('img').src;
+const price = propertyCard.querySelector('.price').textContent;
+const propertyType = propertyCard.dataset.propertyType;
+const location = propertyCard.dataset.location;
+const bedrooms = propertyCard.dataset.bedrooms;
+const developer = propertyCard.dataset.developer;
+// Update modal content
+const modal = document.getElementById('propertyModal');
+document.getElementById('modal-title').textContent = title;
+const modalDescription = document.getElementById('modal-description');
+modalDescription.innerHTML = `
+<h3>${title}</h3>
+<p>${description}</p>
+<p><strong>Price:</strong> ${price}</p>
+<p><strong>Specifications:</strong> Premium finishes, spacious living areas, and access to world-class amenities.</p>
+<p><strong>Amenities:</strong> 24/7 security, valet parking, spa and wellness center, children's play area</p>
+`;
+// Update property details
+const modalDetails = document.getElementById('modal-property-details');
+modalDetails.innerHTML = `
+<div class="detail-item-modal">
+<strong><i class="fas fa-map-marker-alt"></i> Location</strong>
+<span>${formatLocation(location)}</span>
+</div>
+<div class="detail-item-modal">
+<strong><i class="fas fa-home"></i> Property Type</strong>
+<span>${capitalizeFirstLetter(propertyType)}</span>
+</div>
+<div class="detail-item-modal">
+<strong><i class="fas fa-bed"></i> Bedrooms</strong>
+<span>${formatBedrooms(bedrooms)}</span>
+</div>
+<div class="detail-item-modal">
+<strong><i class="fas fa-building"></i> Developer</strong>
+<span>${developer}</span>
+</div>
+`;
+// Update gallery
+const gallery = modal.querySelector('.gallery');
+gallery.innerHTML = `
+<img src="${mainImage}" alt="${title} - Main View">
+<img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="${title} - Interior">
+<img src="https://images.unsplash.com/photo-1600596542815-27b88e39e1d0?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="${title} - View">
+<img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80" alt="${title} - Amenities">
+`;
+modal.style.display = 'block';
+document.body.style.overflow = 'hidden';
+}
+function closeModal() {
+document.getElementById('propertyModal').style.display = 'none';
+document.body.style.overflow = 'auto';
+}
+function openDeveloperModal(developerId) {
+const modal = document.getElementById('developerModal');
+const modalLogo = document.getElementById('modalDeveloperLogo');
+const modalName = document.getElementById('modalDeveloperName');
+const modalWhoWeAre = document.getElementById('modalWhoWeAre');
+const modalWhyChooseUs = document.getElementById('modalWhyChooseUs');
+const modalCompleted = document.getElementById('modalCompletedProjects');
+const modalOngoing = document.getElementById('modalOngoingProjects');
+const modalPlanned = document.getElementById('modalPlannedProjects');
+// Developer data
+const developers = {
+rua: {
+logo: 'images/rua-logo.png',
+name: 'Rua Al Madinah Holding',
+whoWeAre: 'The primary developer for the "Central Area" adjacent to the Prophet\'s Mosque. A PIF Owned company focused on infrastructure revitalization of the central district.',
+whyChooseUs: 'Rua Al Madinah is shaping the future of pilgrim accommodation with massive scale developments designed to host millions comfortably near the Haram.',
+completed: [
+{ name: 'Infrastructure Revitalization', desc: 'Central district infrastructure upgrades' }
+],
+ongoing: [
+{ name: 'Rua Al Madinah Mega-Project', desc: '1.5 million m² development east of the Prophet\'s Mosque for 30M pilgrims' },
+{ name: 'Dar Al Hijrah', desc: 'Mixed-use landmark with massive hotel and commercial towers' }
+],
+planned: [
+{ name: 'Islamic Civilization Village', desc: 'Cultural destination featuring 8 distinct world heritage zones' }
+]
+},
+kec: {
+logo: 'images/kec-logo.png',
+name: 'Knowledge Economic City (KEC)',
+whoWeAre: 'A publicly listed company developing a "Smart City" hub near the Haramain High-Speed Railway station.',
+whyChooseUs: 'KEC blends modern technology with residential comfort, creating a hub for knowledge and living near the transport nexus.',
+completed: [
+{ name: 'Dar Al-Jewar', desc: 'Luxury gated community' }
+],
+ongoing: [
+{ name: 'KEC Hub (Wasat Al Madinah)', desc: 'Massive mall, Hilton hotel, and luxury residential tower' },
+{ name: 'Al-Alya Project', desc: 'Mixed-use gated community under construction' },
+{ name: 'Multaka Residences', desc: 'Modern units blending Hijazi architecture with smart technology' }
+],
+planned: [
+{ name: 'Islamic World District', desc: 'Expansion of specialized knowledge and tech zones' }
+]
+},
+nhc: {
+logo: 'images/nhc-logo.png',
+name: 'National Housing Company (NHC)',
+whoWeAre: 'The investment arm of the Ministry of Housing, focusing on affordable and high-quality residential suburbs.',
+whyChooseUs: 'NHC ensures quality family living with large-scale suburban developments designed for community and comfort.',
+completed: [
+{ name: 'Durrat Al-Madina 1 & 2', desc: 'Completed residential complexes' }
+],
+ongoing: [
+{ name: 'Al-Dar Destination', desc: 'Massive suburb 7km from the Prophet\'s Mosque (Rehab Al Dar, Meknan)' },
+{ name: 'Goroub Community', desc: 'Off-plan residential project on the western side' }
+],
+planned: [
+{ name: 'Al-Mukiman Destination', desc: 'Mega-community designed to house over 38,000 residents' }
+]
+},
+taiba: {
+logo: 'images/taiba-logo.png',
+name: 'Taiba Investments',
+whoWeAre: 'A major private player with deep roots in Medinah\'s hospitality and real estate sectors.',
+whyChooseUs: 'Taiba specializes in high-end hospitality and commercial real estate, ensuring premium service and location.',
+completed: [
+{ name: 'Taiba Residential & Commercial Center', desc: 'Iconic mixed-use development' },
+{ name: 'Al Majeedi Commercial Center', desc: 'Prime commercial location' }
+],
+ongoing: [
+{ name: 'Sheraton Taiba Hotel', desc: 'Two towers under construction (expected 2025/2026)' },
+{ name: 'Novotel Madina', desc: '18-story luxury hotel project nearing completion' },
+{ name: 'Makarem Burj Almadina', desc: '5-star hotel in the northern central area' }
+],
+planned: [
+{ name: 'Smart Residences', desc: 'Diversification into high-end smart homes' },
+{ name: 'stc Square Expansion', desc: 'Further expansion into commercial concepts' }
+]
+},
+others: {
+logo: 'images/others-logo.png',
+name: 'Key Private Developers',
+whoWeAre: 'Includes Dar Al Arkan, Dar Wa Emaar, and Manazel Modern Homes. Involved in large-scale residential and mixed-use developments.',
+whyChooseUs: 'These partners bring diverse expertise in large-scale housing and perimeter developments.',
+completed: [
+{ name: 'Durrat Al-Madina', desc: 'Large-scale housing partnership with NHC' }
+],
+ongoing: [
+{ name: 'Saraya Al-Bader', desc: 'Residential project by Dar Wa Emaar' },
+{ name: 'Perimeter Developments', desc: 'Large-scale residential by Dar Al Arkan' }
+],
+planned: [
+{ name: 'Future Housing Projects', desc: 'Continued partnership for large-scale housing' }
+]
+}
+};
+const dev = developers[developerId];
+if (!dev) return;
+// Update modal content
+modalLogo.src = dev.logo;
+modalName.textContent = dev.name;
+modalWhoWeAre.textContent = dev.whoWeAre;
+modalWhyChooseUs.textContent = dev.whyChooseUs;
+// Update completed projects
+modalCompleted.innerHTML = dev.completed.map(project => `
+<div class="project-item">
+<h4>${project.name} <span class="project-status status-completed">Completed</span></h4>
+<p>${project.desc}</p>
+</div>
+`).join('');
+// Update ongoing projects
+modalOngoing.innerHTML = dev.ongoing.map(project => `
+<div class="project-item">
+<h4>${project.name} <span class="project-status status-ongoing">Ongoing</span></h4>
+<p>${project.desc}</p>
+</div>
+`).join('');
+// Update planned projects
+modalPlanned.innerHTML = dev.planned.map(project => `
+<div class="project-item">
+<h4>${project.name} <span class="project-status status-planned">Planned</span></h4>
+<p>${project.desc}</p>
+</div>
+`).join('');
+// Show modal
+modal.style.display = 'block';
+document.body.style.overflow = 'hidden';
+}
+function closeDeveloperModal() {
+document.getElementById('developerModal').style.display = 'none';
+document.body.style.overflow = 'auto';
+}
+// Close modals when clicking outside
+window.addEventListener('click', (event) => {
+const propertyModal = document.getElementById('propertyModal');
+const developerModal = document.getElementById('developerModal');
+if (event.target === propertyModal) closeModal();
+if (event.target === developerModal) closeDeveloperModal();
+});
+// Close modals with Escape key
+document.addEventListener('keydown', (event) => {
+if (event.key === 'Escape') {
+closeModal();
+closeDeveloperModal();
+}
+});
+// ===== HELPER FUNCTIONS =====
+function formatLocation(location) {
+return location
+.replace(/-/g, ' ')
+.replace(/\b\w/g, char => char.toUpperCase());
+}
+function capitalizeFirstLetter(string) {
+return string.charAt(0).toUpperCase() + string.slice(1);
+}
+function formatBedrooms(bedrooms) {
+if (bedrooms === 'studio') return 'Studio';
+if (bedrooms === '0') return 'Commercial';
+return `${bedrooms} Bedroom${bedrooms > 1 ? 's' : ''}`;
+}
+function scrollToTop() {
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+// ===== AI SEARCH FUNCTIONALITY =====
+const aiSearch = {
+step: 0,
+selectedPropertyType: '',
+selectedLocation: '',
+selectedBedrooms: '',
+propertyTypes: [
+{ value: '', label: 'Any Property Type' },
+{ value: 'villa', label: 'Villa' },
+{ value: 'apartment', label: 'Apartment' },
+{ value: 'studio', label: 'Studio' },
+{ value: 'commercial', label: 'Commercial' }
+],
+locations: [
+{ value: '', label: 'Any Location' },
+{ value: 'central-area', label: 'Central Area (Haram)' },
+{ value: 'knowledge-city', label: 'Knowledge Economic City' },
+{ value: 'al-dar', label: 'Al-Dar Destination' },
+{ value: 'western-side', label: 'Western Side' }
+],
+bedrooms: [
+{ value: '', label: 'Any Bedrooms' },
+{ value: '1', label: '1 Bedroom' },
+{ value: '2', label: '2 Bedrooms' },
+{ value: '3', label: '3 Bedrooms' },
+{ value: '4', label: '4+ Bedrooms' }
+],
+init() {
+const optionsContainer = document.getElementById('aiOptions');
+const backBtn = document.getElementById('aiBackBtn');
+const filterInput = document.getElementById('filterSearch');
+// Option button click handler
+optionsContainer.addEventListener('click', (e) => {
+if (!e.target.classList.contains('ai-option-btn')) return;
+const val = e.target.dataset.value;
+if (this.step === 0) {
+this.selectedPropertyType = val;
+this.step = 1;
+this.renderLocationStep();
+} else if (this.step === 1) {
+this.selectedLocation = val;
+this.step = 2;
+this.renderBedroomsStep();
+} else if (this.step === 2) {
+this.selectedBedrooms = val;
+this.applyFinalFilters();
+} else if (this.step === 3 && val === 'reset') {
+this.reset();
+}
+});
+// Back button handler
+backBtn.addEventListener('click', () => {
+if (this.step === 1) this.resetToStep(0);
+else if (this.step === 2) this.resetToStep(1);
+});
+// Text search filtering
+if (filterInput) {
+filterInput.addEventListener('input', applyFilters);
+filterInput.addEventListener('keypress', (e) => {
+if (e.key === 'Enter') applyFilters();
+});
+}
+},
+resetToStep(step) {
+this.step = step;
+if (step === 0) this.renderInitialStep();
+else if (step === 1) this.renderLocationStep();
+else if (step === 2) this.renderBedroomsStep();
+},
+renderInitialStep() {
+document.getElementById('aiPrompt').innerHTML = 'Hi! What type of property are you looking for in Medinah?';
+document.getElementById('aiOptions').innerHTML = this.propertyTypes.map(type =>
+`<button class="ai-option-btn" data-value="${type.value}">${type.label}</button>`
+).join('');
+document.getElementById('aiBackBtn').style.display = 'none';
+},
+renderLocationStep() {
+const typeLabel = this.propertyTypes.find(t => t.value === this.selectedPropertyType)?.label || 'property';
+document.getElementById('aiPrompt').innerHTML = `Great! Which <strong>Medinah location</strong> would you like to find a ${typeLabel} in?`;
+document.getElementById('aiOptions').innerHTML = this.locations.map(loc =>
+`<button class="ai-option-btn" data-value="${loc.value}">${loc.label}</button>`
+).join('');
+document.getElementById('aiBackBtn').style.display = 'flex';
+},
+renderBedroomsStep() {
+const typeLabel = this.propertyTypes.find(t => t.value === this.selectedPropertyType)?.label || 'property';
+document.getElementById('aiPrompt').innerHTML = `Excellent! How many <strong>bedrooms</strong> for your ${typeLabel}?`;
+document.getElementById('aiOptions').innerHTML = this.bedrooms.map(bed =>
+`<button class="ai-option-btn" data-value="${bed.value}">${bed.label}</button>`
+).join('');
+},
+applyFinalFilters() {
+document.getElementById('filterSearch').value = '';
+document.getElementById('filterPropertyType').value = this.selectedPropertyType;
+document.getElementById('filterLocation').value = this.selectedLocation;
+document.getElementById('filterBedrooms').value = this.selectedBedrooms;
+applyFilters();
+const typeLabel = this.propertyTypes.find(t => t.value === this.selectedPropertyType)?.label || 'any property';
+const locLabel = this.locations.find(l => l.value === this.selectedLocation)?.label || 'any location';
+const bedLabel = this.bedrooms.find(b => b.value === this.selectedBedrooms)?.label || 'any bedrooms';
+document.getElementById('aiPrompt').innerHTML = `✅ Showing <strong>${typeLabel}</strong> with <strong>${bedLabel}</strong> in <strong>${locLabel}</strong>.`;
+document.getElementById('aiOptions').innerHTML = `<button class="ai-option-btn" data-value="reset">Start Over</button>`;
+document.getElementById('aiBackBtn').style.display = 'none';
+this.step = 3;
+},
+reset() {
+this.step = 0;
+this.selectedPropertyType = '';
+this.selectedLocation = '';
+this.selectedBedrooms = '';
+document.getElementById('filterPropertyType').value = '';
+document.getElementById('filterLocation').value = '';
+document.getElementById('filterBedrooms').value = '';
+document.getElementById('filterSearch').value = '';
+applyFilters();
+this.renderInitialStep();
+}
+};
+function applyFilters() {
+const propertyType = document.getElementById('filterPropertyType').value;
+const location = document.getElementById('filterLocation').value;
+const bedrooms = document.getElementById('filterBedrooms').value;
+const searchTerm = (document.getElementById('filterSearch')?.value || '').toLowerCase().trim();
+let visibleCount = 0;
+document.querySelectorAll('.properties-grid .property-card').forEach(card => {
+const name = card.querySelector('h3')?.textContent.toLowerCase() || '';
+const desc = card.querySelector('p')?.textContent.toLowerCase() || '';
+const matchesText = !searchTerm || name.includes(searchTerm) || desc.includes(searchTerm);
+const matchesType = !propertyType || card.dataset.propertyType === propertyType;
+const matchesLoc = !location || card.dataset.location === location;
+const matchesBeds = !bedrooms || card.dataset.bedrooms === bedrooms;
+const isVisible = matchesText && matchesType && matchesLoc && matchesBeds;
+if (isVisible) {
+visibleCount++;
+card.style.display = 'block';
+} else {
+card.style.display = 'none';
+}
+});
+showNoResultsMessage(visibleCount);
+}
+function showNoResultsMessage(count) {
+const grid = document.getElementById('propertiesGrid');
+let noResultsMsg = document.getElementById('noResultsMessage');
+if (count === 0) {
+if (!noResultsMsg) {
+noResultsMsg = document.createElement('div');
+noResultsMsg.id = 'noResultsMessage';
+noResultsMsg.style.cssText = `
+grid-column: 1 / -1;
+text-align: center;
+padding: 4rem 2rem;
+background: var(--glass-bg);
+border-radius: var(--border-radius-lg);
+border: 2px dashed rgba(96, 147, 191, 0.3);
+`;
+noResultsMsg.innerHTML = `
+<i class="fas fa-search" style="font-size: 3rem; color: #6093BF; margin-bottom: 1rem;"></i>
+<h3 style="font-family: 'Playfair Display', serif; color: white; margin-bottom: 1rem;">No Properties Found</h3>
+<p style="color: #a0a8b8; max-width: 600px; margin: 0 auto;">
+Try adjusting your filters or search terms. We have a wide range of properties available!
+</p>
+<button onclick="resetAllFilters()" style="
+margin-top: 1.5rem;
+background: linear-gradient(45deg, #6093BF, #73B2D9);
+color: white;
+padding: 0.8rem 2rem;
+border: none;
+border-radius: 8px;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s ease;
+">Reset Filters</button>
+`;
+grid.appendChild(noResultsMsg);
+}
+} else if (noResultsMsg) {
+noResultsMsg.remove();
+}
+}
+function resetAllFilters() {
+document.getElementById('filterPropertyType').value = '';
+document.getElementById('filterLocation').value = '';
+document.getElementById('filterBedrooms').value = '';
+document.getElementById('filterSearch').value = '';
+aiSearch.reset();
+applyFilters();
+}
+// ===== NEWSLETTER FORM =====
+document.getElementById('newsletterForm')?.addEventListener('submit', function(e) {
+e.preventDefault();
+const email = this.querySelector('input[type="email"]').value;
+alert(`Thank you for subscribing with ${email}! You'll receive our next newsletter soon.`);
+this.reset();
+});
+// ===== CHAT WIDGET =====
+function initChatWidget() {
+const widget = document.getElementById('dubai-chat-widget');
+let isExpanded = false;
+let messagesContainer = null;
+let inputField = null;
+let typingElement = null;
+// Knowledge Base
+const KB = {
+business: {
+name: 'Da One Living',
+phone: '+966 50 000 0000',
+email: 'info@daoneliving.com',
+whatsapp: '966500000000'
+},
+developers: {
+rua: {
+name: 'Rua Al Madinah Holding',
+description: 'PIF Owned. Primary developer for the Central Area adjacent to the Prophet\'s Mosque.',
+completed: ['Infrastructure revitalization'],
+ongoing: ['Rua Al Madinah Mega-Project', 'Dar Al Hijrah'],
+specialties: 'Pilgrim accommodation, Central District development'
+},
+kec: {
+name: 'Knowledge Economic City',
+description: 'Publicly listed Smart City hub near Haramain High-Speed Railway.',
+completed: ['Dar Al-Jewar'],
+ongoing: ['KEC Hub', 'Al-Alya Project', 'Multaka Residences'],
+specialties: 'Smart technology, Mixed-use, Transport hub'
+},
+nhc: {
+name: 'National Housing Company',
+description: 'Investment arm of Ministry of Housing. Affordable and high-quality suburbs.',
+completed: ['Durrat Al-Madina 1 & 2'],
+ongoing: ['Al-Dar Destination', 'Goroub Community'],
+specialties: 'Family suburbs, Affordable housing, Large-scale communities'
+},
+taiba: {
+name: 'Taiba Investments',
+description: 'Major private player in hospitality and real estate.',
+completed: ['Taiba Residential Center', 'Al Majeedi Commercial Center'],
+ongoing: ['Sheraton Taiba Hotel', 'Novotel Madina', 'Makarem Burj Almadina'],
+specialties: 'Hotels, Commercial, Luxury residences'
+},
+others: {
+name: 'Key Private Developers',
+description: 'Includes Dar Al Arkan, Dar Wa Emaar, Manazel Modern Homes.',
+completed: ['Durrat Al-Madina'],
+ongoing: ['Saraya Al-Bader', 'Perimeter Developments'],
+specialties: 'Large-scale residential, Mixed-use'
+}
+},
+areas: `
+<strong>📍 Medinah Areas by Lifestyle:</strong><br><br>
+<div class="developer-highlight">
+<strong>🕌 Central Area</strong><br>
+Adjacent to Prophet's Mosque. Premium hotels and apartments.
+</div>
+<div class="developer-highlight">
+<strong>🚄 Knowledge City</strong><br>
+Near Haramain Railway. Smart city hub with modern amenities.
+</div>
+<div class="developer-highlight">
+<strong>🏡 Family Suburbs</strong><br>
+Al-Dar, Goroub. Villas and townhouses for families.
+</div>
+<div class="developer-highlight">
+<strong>🏢 Commercial Hubs</strong><br>
+Taiba centers, Business districts.
+</div>
+`
+};
+widget.addEventListener('click', () => {
+if (isExpanded) {
+minimizeWidget();
+} else {
+expandWidget();
+}
+});
+function expandWidget() {
+isExpanded = true;
+widget.className = 'expanded';
+widget.innerHTML = `
+<div class="chat-widget-header">
+<div class="chat-widget-avatar">D1</div>
+<div class="chat-widget-title">
+<h3>Da One Assistant</h3>
+<p>Your Medinah real estate expert</p>
+</div>
+<button class="chat-widget-close" id="chatCloseBtn">
+<i class="fas fa-times"></i>
+</button>
+</div>
+<div class="chat-widget-messages" id="chatMessages">
+<div class="chat-message bot">
+Hello! 👋 I'm your <strong>Da One Living</strong> assistant!<br><br>
+How can I help you today?
+<div class="chat-suggestions">
+<button class="chat-suggestion-btn" data-query="near haram"><i class="fas fa-mosque"></i> Near Haram</button>
+<button class="chat-suggestion-btn" data-query="top developers"><i class="fas fa-building"></i> Developers</button>
+<button class="chat-suggestion-btn" data-query="smart city"><i class="fas fa-wifi"></i> Smart City</button>
+<button class="chat-suggestion-btn" data-query="investment guide"><i class="fas fa-chart-line"></i> Investment</button>
+</div>
+</div>
+</div>
+<div class="chat-widget-input">
+<input type="text" id="chatInput" placeholder="Ask about Medinah real estate..." autocomplete="off">
+<button id="sendChatBtn">
+<i class="fas fa-paper-plane"></i>
+</button>
+</div>
+`;
+// Setup event listeners
+document.getElementById('chatCloseBtn').addEventListener('click', (e) => {
+e.stopPropagation();
+minimizeWidget();
+});
+document.getElementById('sendChatBtn').addEventListener('click', sendMessage);
+document.getElementById('chatInput').addEventListener('keypress', (e) => {
+if (e.key === 'Enter') sendMessage();
+});
+// Setup suggestion buttons
+setTimeout(() => {
+document.querySelectorAll('.chat-suggestion-btn').forEach(btn => {
+btn.addEventListener('click', (e) => {
+e.stopPropagation();
+const query = e.target.dataset.query || e.target.closest('button').dataset.query;
+addMessage(query, 'user');
+processQuery(query);
+if (inputField) inputField.value = '';
+});
+});
+}, 100);
+// Cache elements
+messagesContainer = document.getElementById('chatMessages');
+inputField = document.getElementById('chatInput');
+// Auto-focus input
+setTimeout(() => {
+if (inputField) inputField.focus();
+}, 100);
+// Hide badge when expanded
+const badge = widget.querySelector('.chat-badge');
+if (badge) badge.style.display = 'none';
+}
+function minimizeWidget() {
+isExpanded = false;
+widget.className = 'minimized';
+widget.innerHTML = `
+<i class="fas fa-comments chat-icon"></i>
+<span class="chat-badge">?</span>
+`;
+widget.addEventListener('click', () => {
+if (!isExpanded) expandWidget();
+});
+// Show badge again
+const badge = widget.querySelector('.chat-badge');
+if (badge) badge.style.display = 'flex';
+}
+function addMessage(text, sender) {
+if (!messagesContainer) return;
+const messageDiv = document.createElement('div');
+messageDiv.className = `chat-message ${sender}`;
+messageDiv.innerHTML = text.replace(/\n/g, '<br>');
+messagesContainer.appendChild(messageDiv);
+messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+function sendMessage() {
+if (!inputField) return;
+const message = inputField.value.trim();
+if (!message) return;
+addMessage(message, 'user');
+inputField.value = '';
+showTypingIndicator();
+setTimeout(() => {
+removeTypingIndicator();
+processQuery(message.toLowerCase());
+}, 800);
+}
+function showTypingIndicator() {
+if (typingElement || !messagesContainer) return;
+typingElement = document.createElement('div');
+typingElement.className = 'chat-message bot';
+typingElement.innerHTML = `
+<div class="typing-indicator">
+<span class="typing-dot"></span>
+<span class="typing-dot"></span>
+<span class="typing-dot"></span>
+</div>
+`;
+messagesContainer.appendChild(typingElement);
+messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+function removeTypingIndicator() {
+if (typingElement && messagesContainer) {
+messagesContainer.removeChild(typingElement);
+typingElement = null;
+}
+}
+function processQuery(query) {
+let response = '';
+// Developer queries
+if (query.includes('developer') || /rua|kec|nhc|taiba|dar al arkan/.test(query)) {
+response = handleDeveloperQuery(query);
+}
+// Areas/Communities general
+else if (query.includes('area') || query.includes('community') || query.includes('neighborhood') || query.includes('where to live') || query.includes('best place') || query.includes('haram') || query.includes('smart')) {
+response = handleAreasQuery(query);
+}
+// Investment queries
+else if (query.includes('invest') || query.includes('roi') || query.includes('yield') || query.includes('mortgage') || query.includes('financ') || query.includes('payment plan')) {
+response = `
+<strong>💰 Medinah Real Estate Investment Guide:</strong><br><br>
+<div class="developer-highlight">
+<strong>📈 ROI Potential:</strong> High rental yield due to pilgrim traffic
+</div>
+<div class="developer-highlight">
+<strong>🏦 Mortgage Options:</strong> Available for eligible buyers
+</div>
+<div class="developer-highlight">
+<strong>💰 Down Payment:</strong> Varies by developer and project
+</div>
+<p style="margin-top: 12px; font-size: 0.95rem; color: #a0a8b8;">
+<i>Medinah offers strong investment potential due to constant demand from visitors.</i>
+</p>
+`;
+}
+// Contact info
+else if (query.includes('contact') || query.includes('phone') || query.includes('email') || query.includes('reach') || query.includes('call')) {
+response = `
+<strong>📞 Contact Da One Living:</strong><br><br>
+<div class="developer-highlight">
+<strong>📱 WhatsApp:</strong> <a href="https://wa.me/${KB.business.whatsapp}" style="color: #6093BF; text-decoration: none;">+${KB.business.phone}</a>
+</div>
+<div class="developer-highlight">
+<strong>📧 Email:</strong> ${KB.business.email}
+</div>
+<div class="developer-highlight">
+<strong>🏢 Office:</strong> Medinah, Saudi Arabia
+</div>
+<p style="margin-top: 12px;">We're available to assist with your real estate needs!</p>
+`;
+}
+// Greetings
+else if (/^(hi|hello|hey|good morning|good afternoon|good evening)/.test(query)) {
+response = `Hello! 👋 Welcome to <strong>Da One Living</strong>!<br><br>
+I'm your real estate assistant. I can help you with:<br>
+• Properties near the Haram<br>
+• Best areas for families<br>
+• Top developers & their projects<br>
+• Investment opportunities<br><br>
+What would you like to know?`;
+}
+// Thank you/Goodbye
+else if (query.includes('thank') || query.includes('bye') || query.includes('goodbye') || query.includes('thanks')) {
+response = `You're welcome! 😊 Whenever you need help with Medinah real estate, Da One Living is here for you.`;
+}
+// Default response
+else {
+response = `I specialize in Medinah real estate! 😊 Try asking:<br><br>
+• "Which areas are best for families?"<br>
+• "Tell me about top developers like Rua or KEC"<br>
+• "Medinah real estate investment guide"<br>
+• "Properties near the Haram"<br><br>
+Or tap below to chat with our human experts!`;
+}
+// Add WhatsApp handoff if not already present
+if (!response.includes('whatsapp-handoff') && !response.includes('Contact Da One')) {
+response += getWhatsAppHandoff(`Chat about: ${query}`);
+}
+addMessage(response, 'bot');
+}
+function handleDeveloperQuery(query) {
+if (query.includes('rua')) return formatDeveloper(KB.developers.rua);
+if (query.includes('kec') || query.includes('knowledge')) return formatDeveloper(KB.developers.kec);
+if (query.includes('nhc') || query.includes('housing')) return formatDeveloper(KB.developers.nhc);
+if (query.includes('taiba')) return formatDeveloper(KB.developers.taiba);
+if (query.includes('dar al arkan') || query.includes('others')) return formatDeveloper(KB.developers.others);
+return `
+<strong>🏢 Medinah's Top Developers:</strong><br><br>
+<div class="developer-highlight">
+<strong>Rua Al Madinah</strong><br>
+🕌 Central Area • PIF Owned • Mega-Projects
+</div>
+<div class="developer-highlight">
+<strong>KEC</strong><br>
+🚄 Smart City • Railway Hub • Modern Living
+</div>
+<div class="developer-highlight">
+<strong>NHC</strong><br>
+🏡 Family Suburbs • Affordable • Ministry Backed
+</div>
+<div class="developer-highlight">
+<strong>Taiba</strong><br>
+🏨 Hospitality • Commercial • Luxury
+</div>
+<p style="margin-top: 12px;">Which developer would you like to know more about?</p>
+`;
+}
+function formatDeveloper(dev) {
+return `
+<strong>${dev.name}</strong><br>
+${dev.description}<br><br>
+<strong>✓ Completed Projects:</strong>
+<ul class="project-list">
+${dev.completed.map(p => `<li>${p}</li>`).join('')}
+</ul>
+<strong>🏗️ Current Projects:</strong>
+<ul class="project-list">
+${dev.ongoing.map(p => `<li>${p}</li>`).join('')}
+</ul>
+<strong>🎯 Specialties:</strong> ${dev.specialties}
+`;
+}
+function handleAreasQuery(query) {
+return KB.areas + `
+<p style="margin-top: 15px; font-weight: 600;">
+Which lifestyle are you looking for? I can give specific recommendations!
+</p>
+`;
+}
+function getWhatsAppHandoff(message) {
+return `
+<div class="whatsapp-handoff" onclick="window.open('https://wa.me/${KB.business.whatsapp}?text=${encodeURIComponent(message + ' - via Da One AI Assistant')}', '_blank')">
+<i class="fab fa-whatsapp"></i>
+<span>Chat with human expert on WhatsApp</span>
+</div>
+`;
+}
+// Initialize badge animation
+const badge = widget.querySelector('.chat-badge');
+if (badge) {
+setInterval(() => {
+if (!isExpanded && badge) {
+badge.textContent = badge.textContent === '?' ? '!' : '?';
+}
+}, 2000);
+}
+}
+// Initialize chat widget
+initChatWidget();
+</script>
+</body>
+</html>
